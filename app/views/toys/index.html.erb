@@ -1,0 +1,20 @@
+<h1>Listing toys</h1>
+<%= link_to 'Create new toy', new_toy_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @toys.each do |toy| %>
+    <tr>
+      <td><%= toy.title %></td>
+      <td><%= toy.text %></td>
+      <td><%= link_to 'Show', toy_path(toy) %></td>
+      <td><%= link_to 'Edit', edit_toy_path(toy) %></td>
+      <td><%= link_to 'Delete', toy_path(toy), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      <!-- DELETE is one of 4 standard methods(verbs) [GET, POST, PUT, DELETE] -->
+    </tr>
+  <% end %>
+</table>
